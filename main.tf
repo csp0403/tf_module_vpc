@@ -10,6 +10,6 @@ resource "aws_subnet" "main_subnet" {
   cidr_block = var.subnets_cidr[count.index]
 
 
-  tags = merge(local.common_tags,{ Name = "${var.env}-subnet" })
+  tags = merge(local.common_tags,{ Name = "${var.env}-subnet${count.index+1}"} )
 
 }
